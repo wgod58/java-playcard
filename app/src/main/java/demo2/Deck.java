@@ -28,10 +28,12 @@ public class Deck {
     public void dealCards(ArrayList<Player> players, int numberOfCards) {
         Random rand = new Random();
         for (Player player : players) {
-            int cardsToDeal = rand.nextInt(numberOfCards) + 1;
-            for (int i = 0; i < cardsToDeal; i++) {
-                player.getHand().add(cards.remove(0));
+            ArrayList<Card> hand = new ArrayList<>();
+            int getCardsNum = rand.nextInt(numberOfCards) + 1;
+            for (int i = 0; i < getCardsNum; i++) {
+                hand.add(cards.remove(0));
             }
+            player.setHand(hand);
         }
     }
 

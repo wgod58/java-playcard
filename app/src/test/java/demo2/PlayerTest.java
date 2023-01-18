@@ -3,11 +3,11 @@
  */
 package test.java.demo2;
 
-import org.junit.Test;
 import demo2.*;
+import java.util.ArrayList;
+import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class PlayerTest {
 
@@ -28,5 +28,23 @@ public class PlayerTest {
         Card playedCard = player.playCard();
         assertEquals(null, playedCard);
         assertEquals(0, player.getHand().size());
+    }
+
+    @Test
+    public void testSetHand() {
+        // create a new player
+        Player player = new Player("player1");
+
+        // create a list of cards
+        ArrayList<Card> cards = new ArrayList<>();
+        cards.add(new Card(1, Suit.SPADES));
+        cards.add(new Card(2, Suit.DIAMONDS));
+        cards.add(new Card(3, Suit.HEARTS));
+
+        // set the hand of the player
+        player.setHand(cards);
+
+        // check that the player's hand is the same as the list of cards
+        assertEquals(cards, player.getHand());
     }
 }

@@ -20,6 +20,10 @@ public class Player {
         return cards;
     }
 
+    public void setHand(ArrayList<Card> hand) {
+        this.cards = hand;
+    }
+
     public Card playCard() {
         if (cards.size() == 0) {
             System.out.println(name + " doesn't have any card left!");
